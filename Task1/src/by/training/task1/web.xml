@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_9" version="a24" 
+	xmlns="http://www.training.by/Task1/web" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.training.by/Task1/web web.xsd ">
+  <display-name>Lab6SQL</display-name>
+   <servlet>
+    <servlet-name>servlet1</servlet-name>
+    <servlet-class>org.mycompany.test1</servlet-class>
+   </servlet>
+	<servlet>
+	    <servlet-name>servlet2</servlet-name>
+	    <servlet-class>org.mycompany.test2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>servlet1</servlet-name>
+	    <url-pattern>/path/test</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+	    <servlet-name>servlet2</servlet-name>
+	    <url-pattern>/path/test/*</url-pattern>
+	</servlet-mapping>
+  <error-page>
+        <error-code>404</error-code>
+        <location>/Error404.html</location>
+</error-page>
+<filter>
+   <filter-name>LogFilter</filter-name>
+   <filter-class>LogFilter</filter-class>
+   <init-param>
+	  <param-name>test-param</param-name>
+	  <param-value>Initialization Paramter</param-value>
+   </init-param>
+</filter>
+
+<filter>
+   <filter-name>AuthenFilter</filter-name>
+   <filter-class>AuthenFilter</filter-class>
+   <init-param>
+	  <param-name>test-param</param-name>
+	  <param-value>Initialization Paramter</param-value>
+   </init-param>
+</filter>
+
+<filter-mapping>
+   <filter-name>LogFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+</filter-mapping>
+
+<filter-mapping>
+   <filter-name>AuthenFilter</filter-name>
+   <url-pattern>/*</url-pattern>
+</filter-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+	  <filter>
+	   <filter-name>LogFilter</filter-name>
+	   <filter-class>LogFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	   <filter-name>LogFilter</filter-name>
+	   <url-pattern>/*</url-pattern>
+	   <dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+</web-app>
